@@ -11,5 +11,6 @@ router.post("/approve/:id", authMiddleware, toolController.approveTool);
 router.get("/search", toolController.searchTools);
 router.get("/trending", toolController.getTrendingTools);
 router.get("/trending", toolController.getTrendingTools);
+router.get("/search", toolController.searchTools);
 
 module.exports = router;

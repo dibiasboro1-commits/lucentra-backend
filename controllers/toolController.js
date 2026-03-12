@@ -130,3 +130,19 @@ exports.getTrendingTools = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+exports.searchTools = async (req, res) => {
+  try {
+
+    const query = req.query.query;
+
+    const tools = await Tool.find({
+      approved: true,
+      name: { $regex: query, $options: "i" }
+    });
+
+    res.json(tools);
+
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
