@@ -12,5 +12,6 @@ router.get("/search", toolController.searchTools);
 router.get("/trending", toolController.getTrendingTools);
 router.get("/trending", toolController.getTrendingTools);
 router.get("/search", toolController.searchTools);
+router.get("/category/:category", toolController.getToolsByCategory);
 
 module.exports = router;

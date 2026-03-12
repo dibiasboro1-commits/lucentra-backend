@@ -146,3 +146,19 @@ exports.searchTools = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+exports.getToolsByCategory = async (req, res) => {
+  try {
+
+    const category = req.params.category;
+
+    const tools = await Tool.find({
+      approved: true,
+      category: category
+    });
+
+    res.json(tools);
+
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
