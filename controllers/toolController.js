@@ -133,7 +133,7 @@ exports.getTrendingTools = async (req, res) => {
 exports.searchTools = async (req, res) => {
   try {
 
-    const query = req.query.query;
+    const query = req.query.query || "";
 
     const tools = await Tool.find({
       approved: true,
