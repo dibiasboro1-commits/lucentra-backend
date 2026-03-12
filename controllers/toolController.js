@@ -162,3 +162,18 @@ exports.getToolsByCategory = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+exports.deleteTool = async (req, res) => {
+  try {
+
+    const tool = await Tool.findByIdAndDelete(req.params.id);
+
+    if (!tool) {
+      return res.status(404).json({ message: "Tool not found" });
+    }
+
+    res.json({ message: "Tool deleted successfully" });
+
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

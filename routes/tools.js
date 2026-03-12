@@ -13,5 +13,6 @@ router.get("/trending", toolController.getTrendingTools);
 router.get("/trending", toolController.getTrendingTools);
 router.get("/search", toolController.searchTools);
 router.get("/category/:category", toolController.getToolsByCategory);
+router.delete("/:id", authMiddleware, toolController.deleteTool);
 
 module.exports = router;
