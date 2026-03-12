@@ -10,5 +10,6 @@ router.post("/upvote/:id", authMiddleware, toolController.upvoteTool);
 router.post("/approve/:id", authMiddleware, toolController.approveTool);
 router.get("/search", toolController.searchTools);
 router.get("/trending", toolController.getTrendingTools);
+router.get("/trending", toolController.getTrendingTools);
 
 module.exports = router;

@@ -117,3 +117,16 @@ exports.getTrendingTools = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+exports.getTrendingTools = async (req, res) => {
+  try {
+
+    const tools = await Tool.find({ approved: true })
+      .sort({ upvotes: -1 })
+      .limit(10);
+
+    res.json(tools);
+
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
