@@ -1,9 +1,10 @@
 const toolRoutes = require("./routes/tools");
 const express = require("express");
 const cors = require("cors");
+const aiToolsRoutes = require("./routes/aitools");
+
 require("dotenv").config();
 
-const connectDB = require("./config/db");
 const authRoutes = require("./routes/auth");
 
 const app = express();
@@ -11,10 +12,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-connectDB();
 
 app.use("/api/auth", authRoutes);
 app.use("/api/tools", toolRoutes);
+app.use("/api/ai", aiToolsRoutes);
 
 app.get("/", (req, res) => {
   res.send("Lucentra Backend Running");
