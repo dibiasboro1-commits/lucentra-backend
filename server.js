@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/tools", toolRoutes);
-app.use("/api/ai", aitoolsRoutes);
+app.use("/api/ai", aiToolsRoutes);
 
 app.get("/", (req, res) => {
   res.send("Lucentra Backend Running");
